@@ -6,7 +6,7 @@ import {
   deleteStudentById,
 } from "../../../controllers/studentController";
 
-export const GET = async (req: NextRequest) => {
+export const GET = async (req, res) => {
   try {
     const students = await getAllStudents();
     return NextResponse.json(students);
@@ -15,7 +15,7 @@ export const GET = async (req: NextRequest) => {
   }
 };
 
-export const POST = async (req: NextRequest) => {
+export const POST = async (req, res) => {
   try {
     const student = await createStudent(req.body);
     return NextResponse.json(student);
@@ -24,7 +24,7 @@ export const POST = async (req: NextRequest) => {
   }
 };
 
-export const PUT = async (req: NextRequest) => {
+export const PUT = async (req, res) => {
   try {
     const student = await updateStudentById(req.body);
     return NextResponse.json(student);
@@ -33,7 +33,7 @@ export const PUT = async (req: NextRequest) => {
   }
 };
 
-export const DELETE = async (req: NextRequest) => {
+export const DELETE = async (req, res) => {
   try {
     const student = await deleteStudentById(req.body);
     return NextResponse.json(student);
