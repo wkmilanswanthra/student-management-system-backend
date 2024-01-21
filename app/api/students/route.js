@@ -23,7 +23,7 @@ const handleErrorResponse = (error) => {
   });
 };
 
-export const GET = async (req, res) => {
+export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
   try {
@@ -39,7 +39,7 @@ export const GET = async (req, res) => {
   }
 };
 
-export const POST = async (req, res) => {
+export const POST = async (req) => {
   const body = await req.json();
   try {
     const student = await createStudent(body);
@@ -49,7 +49,7 @@ export const POST = async (req, res) => {
   }
 };
 
-export const PUT = async (req, res) => {
+export const PUT = async (req) => {
   const body = await req.json();
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
@@ -61,7 +61,7 @@ export const PUT = async (req, res) => {
   }
 };
 
-export const DELETE = async (req, res) => {
+export const DELETE = async (req) => {
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
   try {
