@@ -1,4 +1,15 @@
-const getAllStudents = async (req, res) => {};
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+const getAllStudents = async () => {
+  try {
+    const students = await prisma.student.findMany();
+    return students;
+  } catch (err) {
+    return err;
+  }
+};
 
 const getStudentById = async (req, res) => {};
 
